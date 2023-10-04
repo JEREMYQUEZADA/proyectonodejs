@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estilos.css">
+  <title>Tabla de datos</title>
+</head>
+<body>
+  <h1>completa las siguientes casillas</h1>
+
+  <form action="/" method="post" class="formulario">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="text" name="apellido" placeholder="Apellido">
+    <input type="text" name="cedula" placeholder="Cédula">
+    <input type="text" name="telefono" placeholder="Teléfono">
+    <input type="text" name="direccion" placeholder="Dirección">
+    <input type="number" name="edad" placeholder="Edad">
+    
+    <input type="submit" value="Enviar" class="boton">
+  </form>
+
+    <h2>Tabla de datos</h2>
+  <table id="myTable" border="2px">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Cedula</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+
+    $(document).ready(function() {
+      // Al presionar el botón "Enviar", agregar la fila a la tabla
+     // Al presionar el botón "Enviar", agregar la fila a la tabla
+$("form").submit(function(e) {
+  e.preventDefault();
+
+  // Validar que todos los campos estén llenos
+  const nombre = $("input[name='nombre']").val();
+  const apellido = $("input[name='apellido']").val();
+  const cedula = $("input[name='cedula']").val();
+  const telefono = $("input[name='telefono']").val();
+  const direccion = $("input[name='direccion']").val();
+  const edad = $("input[name='edad']").val();
+
+  if (nombre === "" || apellido === "" || cedula === "" || telefono === "" || direccion === "" || edad === "") {
+    alert("Todos los campos deben estar llenos");
+    return false;
+  }
+
+  // Crear una nueva fila
+  const row = `<tr style="background-color: #ccc; font-size: 12px;">
+    <td>${nombre}</td>
+    <td>${apellido}</td>
+    <td>${cedula}</td>
+    <td>${telefono}</td>
+    <td>${direccion}</td>
+    <td>${edad}</td>
+  </tr>`;
+
+  // Agregar la fila a la tabla
+  $("#myTable tbody").append(row);
+});
+
+// Al cambiar el valor de un campo input, agregar un borde rojo si está vacío
+$("input").on("input", function() {
+  const valor = $(this).val();
+
+  if (valor === "") {
+    $(this).css("border", "1px solid red");
+  } else {
+    $(this).css("border", "1px solid black");
+  }
+});
+
+    });
+
+  </script>
+</body>
+</html>

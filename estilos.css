@@ -1,0 +1,41 @@
+body {
+   background-image: url(imagenpro.jpg);
+}
+
+h1,
+h2 {
+  text-align: center;
+  align-items: center;
+}
+
+table {
+  margin: 10px;
+  border-collapse: collapse;
+  margin: 0 auto;
+
+}
+
+th,
+td, tr {
+  padding: 5px;
+  text-align: center;
+}
+
+input {
+  width: 20%;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+
+.boton {
+    width: 10%;
+    text-align: center;
+    background-color:beige;
+
+  }
+
+input:hover{
+    background-color: blue;
+}
